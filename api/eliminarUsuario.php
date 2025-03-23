@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 require_once 'conexion.php';
 $obj = json_decode(file_get_contents("php://input"));
-$stmt = $db->prepare("DELETE FROM clientes where id=?");
+$stmt = $db->prepare("DELETE FROM usuarios where id=?");
 $stmt->bind_param('s',$obj->id);
 $stmt->execute();
 $stmt->close();

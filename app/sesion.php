@@ -188,7 +188,7 @@
                     </div>
 
                     <div class="signup-link">
-                        ¿Ya tienes cuenta? <a href="index.php">Iniciar sesión</a>
+                        ¿Ya tienes cuenta? <a href="inicio.php">Iniciar sesión</a>
                     </div>
                 </form>
             </div>

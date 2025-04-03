@@ -27,7 +27,7 @@
                         <p class="card-text">Leche fresca pasteurizada, 1 litro.</p>
                         <div class="mt-auto">
                             <p class="card-text product-price">$1.00</p>
-                            <a href="#" class="btn btn-primary btn-block">Agregar al Carrito</a>
+                            <a href="index.php" class="btn btn-primary btn-block">Agregar al Carrito</a>
                         </div>
                     </div>
                 </div>

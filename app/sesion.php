@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regístrate</title>
+    <title>Supermercado D&J</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -188,7 +188,7 @@
                     </div>
 
                     <div class="signup-link">
-                        ¿Ya tienes cuenta? <a href="inicio.php">Iniciar sesión</a>
+                        ¡Ya tengo una cuenta! <a href="inicio.php">Iniciar sesión</a>
                     </div>
                 </form>
             </div>

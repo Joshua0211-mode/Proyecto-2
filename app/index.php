@@ -21,7 +21,7 @@
             <!-- Producto 1 -->
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="card product-card h-100">
-                    <img src="" class="card-img-top product-img" alt="Producto 1">
+                    <img src="img/lala.png" class="card-img-top product-img" alt="Producto 1">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title product-title">Leche Entera</h5>
                         <p class="card-text">Leche fresca pasteurizada, 1 litro.</p>

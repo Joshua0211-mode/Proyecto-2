@@ -74,6 +74,8 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <!-- Menú de navegación izquierda -->
         <ul class="navbar-nav">
+        <li><a class="nav-link" href=""><?php session_start(); echo $_SESSION['usuario']; ?></a></li>
+
           <li class="nav-item">
             <a class="nav-link" href="#">Productos</a>
           </li>
@@ -98,8 +100,7 @@
       </div>
       <!-- Sección de usuario derecha -->
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="nav-link" href=""><?php session_start();
-                                        echo $_SESSION['usuario']; ?></a></li>
+        <a href="carrito.php"> <i class="fas fa-shopping-cart cart-icon"></i>
         <li><a class="nav-link" href="../api/salir.php">Salir</a></li>
       </ul>
     </div>

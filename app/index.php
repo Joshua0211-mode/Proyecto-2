@@ -13,7 +13,7 @@
             
         </div>
     </section>
-
+    
     <!-- Sección de Productos -->
     <div class="container py-5">
         <h2 class="section-title">Nuestros Productos</h2>
@@ -27,7 +27,7 @@
                         <p class="card-text">Leche fresca pasteurizada, 1 litro.</p>
                         <div class="mt-auto">
                             <p class="card-text product-price">$1.00</p>
-                            <a href="index.php" class="btn btn-primary btn-block">Agregar al Carrito</a>
+                            <a href="inicio.php" class="btn btn-primary btn-block">Agregar al Carrito</a>
                         </div>
                     </div>
                 </div>

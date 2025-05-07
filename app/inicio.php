@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regístrate</title>
+    <title>Supermercado D&J</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -110,6 +110,7 @@
     <script src="./controlador/jquery.min.js"></script>
     <script src="./controlador/bootstrap.min.js"></script>
     <script src="./controlador/angular.min.js"></script>
+    <script src="./controlador/index.js"></script>
 </head>
 
 <header>

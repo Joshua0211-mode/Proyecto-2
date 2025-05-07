@@ -1,0 +1,40 @@
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.search-container {
+    flex-grow: 1;
+    max-width: 600px;
+    margin: 0 100px;
+}
+.user-section {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.cart-icon {
+    color: #28a745;
+    font-size: 1.5rem;
+}
+@media (max-width: 991.98px) {
+    .search-container {
+        position: static;
+        transform: none;
+        width: 100%;
+        margin: 10px 0;
+        order: 3;
+    }
+    .user-section {
+        margin-left: 0;
+        order: 2;
+    }
+    .navbar-collapse {
+        flex-direction: column;
+    }
+}

@@ -38,9 +38,10 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <!-- Contenido colapsable -->
             <div class="collapse navbar-collapse" id="navbarNav">
-
+            <a class="nav-link" href="inicio.php"><i class="fas fa-user-circle"></i>Mi Perfil</a>
 
                 <li class="nav-link" href=""></li>
                 <!-- Menú de navegación izquierda -->
@@ -48,32 +49,27 @@
                 <ul class="navbar-nav">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="productos.php"><i class="fas fa-box"></i> Productos</a>
+                        
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-box"></i>Categorías
                         </a>
                         <div class="dropdown-menu" aria-labelledby="categoriasDropdown">
-                            <a class="dropdown-item" href="productos.php?categoria=Lácteos y Derivados">Lácteos y Derivados</a>
-                            <a class="dropdown-item" href="productos.php?categoria=Panificación y Repostería">Panificación y Repostería</a>
-                            <a class="dropdown-item" href="productos.php?categoria=Cárnicos y Embutidos">Cárnicos y Embutidos</a>
-                            <a class="dropdown-item" href="productos.php?categoria=Enlatados y Conservas">Enlatados y Conservas</a>
-                            <a class="dropdown-item" href="productos.php?categoria=Aves y Huevo">Aves y Huevo</a>
-                            <a class="dropdown-item" href="productos.php?categoria=Jugos y Bebidas de Frutas">Jugos y Bebidas de Frutas</a>
-                            <a class="dropdown-item" href="productos.php?categoria=Bebidas no Alcohólicas">Bebidas no Alcohólicas</a>
-                            <a class="dropdown-item" href="productos.php?categoria=Bebidas Alcohólicas">Bebidas Alcohólicas</a>
-                            <a class="dropdown-item" href="productos.php?categoria=Botanas y Snacks">Botanas y Snacks</a>
-                            <a class="dropdown-item" href="productos.php?categoria=Encurtidos y Aderezos">Encurtidos y Aderezos</a>
+                            <a class="dropdown-item" href="index.php?categoria=Lácteos y Derivados">Lácteos y Derivados</a>
+                            <a class="dropdown-item" href="index.php?categoria=Panificación y Repostería">Panificación y Repostería</a>
+                            <a class="dropdown-item" href="index.php?categoria=Cárnicos y Embutidos">Cárnicos y Embutidos</a>
+                            <a class="dropdown-item" href="index.php?categoria=Enlatados y Conservas">Enlatados y Conservas</a>
+                           
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="productos.php">Todas las categorías</a>
+                            <a class="dropdown-item" href="inicio.php">Todas las categorías</a>
                         </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="perfil.php"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-user-circle"></i>Contacto</a>
+                      
                     </li>
                 </ul>
 
@@ -104,8 +100,6 @@
 </script>
 
 <?php
-
-
 require_once 'conexion.php'; // Usa tu archivo que contiene la conexión
 $condicion = "";
 $param = [];

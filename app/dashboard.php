@@ -83,7 +83,9 @@
         <!-- Barra de búsqueda centrada -->
         <div class="search-container">
           <form class="form-inline d-flex" method="GET" action="">
-            <input class="form-control flex-grow-1" type="search" name="buscar" placeholder="Buscar productos">
+          <input class="form-control flex-grow-1" type="search" name="buscar" placeholder="Buscar productos"
+       value="<?= isset($_GET['buscar']) ? htmlspecialchars($_GET['buscar']) : '' ?>">
+
             <button class="btn btn-outline-success ml-2" type="submit">Buscar</button>
           </form>
         </div>

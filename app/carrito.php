@@ -34,7 +34,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <!-- Logo y menú hamburguesa -->
-      <a class="navbar-brand" href="index.php"><i class="fas fa-shopping-bag"></i> Supermercado D&J </a>
+      <a class="navbar-brand" href="dashboard.php"><i class="fas fa-shopping-bag"></i> Supermercado D&J </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>

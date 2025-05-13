@@ -34,22 +34,27 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <!-- Logo y menú hamburguesa -->
-            <a class="navbar-brand" href="index.php"><i class="fas fa-shopping-bag"></i> Supermercado D&J </a>
+            <a class="navbar-brand" href="dashboard.php"><i class="fas fa-shopping-bag"></i> Supermercado D&J </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <!-- Contenido colapsable -->
             <div class="collapse navbar-collapse" id="navbarNav">
+
+                </li>
+
                 <!-- Menú de navegación izquierda -->
+
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Productos</a>
+                    <li class="nav-link" href=""><i class="fas fa-user-circle"></i><?php session_start();
+                                                                                    echo $_SESSION['usuario']; ?></li>
+                    <a class="nav-link" href="productos.php"><i class="fas fa-box"></i> Productos</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Categorias
+                            <i class="fas fa-th-list"></i> Categorías
                         </a>
                         <div class="dropdown-menu" aria-labelledby="categoriasDropdown">
                             <a class="dropdown-item" href="productos.php?categoria=Lácteos y Derivados">Lácteos y Derivados</a>
@@ -63,29 +68,32 @@
                             <a class="dropdown-item" href="productos.php?categoria=Botanas y Snacks">Botanas y Snacks</a>
                             <a class="dropdown-item" href="productos.php?categoria=Encurtidos y Aderezos">Encurtidos y Aderezos</a>
                             <div class="dropdown-divider"></div>
-                            
-
+                            <a class="dropdown-item" href="productos.php">Todas las categorías</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
+                        <a class="nav-link" href="perfil.php"><i class="fas fa-map-marker-alt""></i> Direcciones</a>
+          </li>
+          <li class=" nav-item">
+                                <a class="nav-link" href="#">Contacto</a>
                     </li>
                 </ul>
+
                 <!-- Barra de búsqueda centrada -->
                 <div class="search-container">
-                    <form class="form-inline d-flex" method="GET" action="index.php">
+                    <form class="form-inline d-flex" method="GET" action="dashboard.php">
                         <input class="form-control flex-grow-1" type="search" name="buscar" placeholder="Buscar productos">
                         <button class="btn btn-outline-success ml-2" type="submit">Buscar</button>
                     </form>
                 </div>
                 <!-- Sección de usuario derecha -->
                 <div class="user-section">
-                    <a href="sesion.php" class="btn btn-outline-success">Registrarse</a>
-                    <a href="inicio.php" class="btn btn-outline-success">Iniciar Sesión</a>
-
+                    <li class="nav-item">
+                        <a href="carrito.php"> <i class="fas fa-shopping-cart cart-icon"></i></a>
+                        <a href="../api/salir.php">Cerrar Sesión</a>
+                    </li>
                 </div>
             </div>
-        </div>
     </nav>
 </header>
 
@@ -126,13 +134,15 @@ if (!empty($_GET['categoria'])) {
 $where = count($condiciones) > 0 ? 'WHERE ' . implode(' AND ', $condiciones) : '';
 
 $sql = "
-    SELECT p.nombre, p.descripcion, p.precio, c.nombre AS categoria
+    SELECT p.id, p.nombre, p.descripcion, p.precio, c.nombre AS categoria
     FROM producto p
     LEFT JOIN categorias c ON p.categoria_id = c.id
     $where
+    LIMIT 30
 ";
 
 $result = $db->query($sql);
+
 
 $categoriaActual = null;
 
@@ -146,7 +156,10 @@ if (!empty($_GET['categoria'])) {
         $categoriaActual = $fila['nombre'];
     }
 }
+
+
 ?>
+
 
 <body>
 
@@ -159,38 +172,48 @@ if (!empty($_GET['categoria'])) {
         </div>
     </section>
     <div class="container py-5">
-    <h2 class="section-title">
-    <?php if ($categoriaActual): ?>
-     <?= htmlspecialchars($categoriaActual) ?>
-    <?php else: ?>
-        Todos nuestros productos
-    <?php endif; ?>
-</h2>
-    <div class="row">
-        <?php if ($result && $result->num_rows > 0): ?>
-            <?php while ($row = $result->fetch_assoc()): ?>
-                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                    <div class="card product-card h-100">
-                        <img src="img/default.jpg" class="card-img-top product-img" alt="<?= htmlspecialchars($row['nombre']) ?>">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title"><?= htmlspecialchars($row['nombre']) ?></h5>
-                            <p class="card-text"><?= htmlspecialchars($row['descripcion']) ?></p>
-                            <small class="text-muted">Categoría: <?= htmlspecialchars($row['categoria']) ?></small>
-                            <div class="mt-auto">
-                                <p class="card-text product-price">$<?= number_format($row['precio'], 2) ?></p>
-                                <a href="inicio.php" class="btn btn-primary btn-block">Agregar al Carrito</a>
+        <h2 class="section-title">
+            <?php if ($categoriaActual): ?>
+                <?= htmlspecialchars($categoriaActual) ?>
+            <?php else: ?>
+                Todos nuestros productos
+            <?php endif; ?>
+        </h2>
+        <div class="row">
+            <?php if ($result && $result->num_rows > 0): ?>
+                <?php while ($row = $result->fetch_assoc()): ?>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="card product-card h-100">
+                            <?php
+                            $id = isset($row['id']) ? $row['id'] : 0;
+                            $imgPath = "img/{$id}.png";
+
+                            if (!file_exists($imgPath)) {
+                                $imgPath = "img/default.png";
+                            }
+                            ?>
+                            <img src="<?= $imgPath ?>" class="card-img-top product-img" alt="<?= htmlspecialchars($row['nombre']) ?>">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title"><?= htmlspecialchars($row['nombre']) ?></h5>
+                                <p class="card-text"><?= htmlspecialchars($row['descripcion']) ?></p>
+                                <small class="text-muted">Categoría: <?= htmlspecialchars($row['categoria']) ?></small>
+                                <div class="mt-auto">
+                                    <p class="card-text product-price">$<?= number_format($row['precio'], 2) ?></p>
+                                    <a href="agregar_carrito.php?id=<?= $row['id'] ?>&cantidad=1" class="btn btn-primary btn-block">
+                                        Agregar al Carrito
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <div class="col-12">
+                    <p class="text-center">No se encontraron productos.</p>
                 </div>
-            <?php endwhile; ?>
-        <?php else: ?>
-            <div class="col-12">
-                <p class="text-center">No se encontraron productos.</p>
-            </div>
-        <?php endif; ?>
+            <?php endif; ?>
+        </div>
     </div>
-</div>
 
 </body>
 <?php require_once 'pie.php'; ?>

@@ -33,14 +33,14 @@ if ($carrito_vacio) {
 </head>
 <body>
 <div class="container mt-5">
-    <h2>🧾 Finalizar Compra</h2>
+    <h2>📍 Selecciona una dirección y método de pago</h2>
 
     <?php if (!$hay_direcciones): ?>
         <div class="alert alert-danger">No tienes direcciones guardadas. <a href="perfil.php">Agrega una aquí</a> para continuar.</div>
     <?php else: ?>
-        <form method="POST" action="procesar_pedido.php">
+        <form method="POST" action="guardar_pago.php">
             <div class="form-group">
-                <label for="direccion">📍 Selecciona una dirección:</label>
+                <label for="direccion_id">📍 Dirección:</label>
                 <select class="form-control" name="direccion_id" required>
                     <?php while ($dir = $direcciones->fetch_assoc()): ?>
                         <option value="<?= $dir['id'] ?>">
@@ -49,7 +49,6 @@ if ($carrito_vacio) {
                     <?php endwhile; ?>
                 </select>
             </div>
-
             <div class="form-group">
                 <label for="metodo_pago">💳 Método de pago:</label>
                 <select class="form-control" name="metodo_pago" required>
@@ -59,7 +58,7 @@ if ($carrito_vacio) {
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-success">Confirmar y Realizar Pedido</button>
+            <button type="submit" class="btn btn-success">Seguir comprando</button>
             <a href="carrito.php" class="btn btn-secondary ml-2">Volver al carrito</a>
         </form>
     <?php endif; ?>

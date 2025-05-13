@@ -108,7 +108,7 @@
                 <!-- Información de contacto -->
                 <div class="col-md-4">
                     <div class="footer-section">
-                        <h4 class="footer-title">INSTITUTO TECNOLÓGICO SUPERIOR DE ALVARADO</h4>
+                        <h4 class="footer-title">¡SUPERMERCADO DIEGO Y JOSH!</h4>
                         <div class="footer-contact">
                             <p>
                                 <i class="fas fa-map-marker-alt"></i>

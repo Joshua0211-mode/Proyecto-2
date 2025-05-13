@@ -34,7 +34,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <!-- Logo y menú hamburguesa -->
-      <a class="navbar-brand" href="index.php"><i class="fas fa-shopping-bag"></i> Supermercado D&J </a>
+      <a class="navbar-brand" href="dashboard.php"><i class="fas fa-shopping-bag"></i> Supermercado D&J </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -42,18 +42,19 @@
       <div class="collapse navbar-collapse" id="navbarNav">
 
         </li>
-        <li class="nav-link" href=""><?php session_start();
-                                      echo $_SESSION['usuario']; ?></li>
+
         <!-- Menú de navegación izquierda -->
 
         <ul class="navbar-nav">
 
           <li class="nav-item">
-            <a class="nav-link" href="productos.php"><i class="fas fa-box"></i> Productos</a>
+          <li class="nav-link" href=""><i class="fas fa-user-circle"></i><?php session_start();
+                                                                          echo $_SESSION['usuario']; ?></li>
+          <a class="nav-link" href="productos.php"><i class="fas fa-box"></i> Productos</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Categorías
+              <i class="fas fa-th-list"></i> Categorías
             </a>
             <div class="dropdown-menu" aria-labelledby="categoriasDropdown">
               <a class="dropdown-item" href="productos.php?categoria=Lácteos y Derivados">Lácteos y Derivados</a>
@@ -71,16 +72,17 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="perfil.php"><i class="fas fa-user-circle"></i> Mi Perfil</a>
+            <a class="nav-link" href="perfil.php"><i class="fas fa-map-marker-alt""></i> Direcciones</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contacto</a>
+          <li class=" nav-item">
+                <a class="nav-link" href="pie.php">Contacto</a>
           </li>
+
         </ul>
 
         <!-- Barra de búsqueda centrada -->
         <div class="search-container">
-          <form class="form-inline d-flex" method="GET" action="dashboard.php">
+          <form class="form-inline d-flex" method="GET" action="">
             <input class="form-control flex-grow-1" type="search" name="buscar" placeholder="Buscar productos">
             <button class="btn btn-outline-success ml-2" type="submit">Buscar</button>
           </form>
@@ -137,6 +139,7 @@ $sql = "
     FROM producto p
     LEFT JOIN categorias c ON p.categoria_id = c.id
     $where
+    LIMIT 30
 ";
 
 $result = $db->query($sql);
@@ -166,7 +169,7 @@ if (!empty($_GET['categoria'])) {
       <?php if ($categoriaActual): ?>
         <?= htmlspecialchars($categoriaActual) ?>
       <?php else: ?>
-        Todos nuestros productos
+        ¡Encuntra una variedad de productos!
       <?php endif; ?>
     </h2>
     <div class="row">

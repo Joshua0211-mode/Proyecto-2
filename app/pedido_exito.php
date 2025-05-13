@@ -15,7 +15,6 @@ if (!isset($_GET['pedido_id'])) {
 
 $pedido_id = intval($_GET['pedido_id']);
 
-// Obtener información del pedido
 $sql = "
     SELECT p.id, p.fecha_pedido, p.total, d.direccion, d.alias, p.metodo_pago
     FROM pedidos p
@@ -57,7 +56,10 @@ $pedido = $result->fetch_assoc();
         <li class="list-group-item"><strong>Método de pago:</strong> <?= htmlspecialchars($pedido['metodo_pago']) ?></li>
     </ul>
 
-    <a href="productos.php" class="btn btn-primary mt-4">Seguir comprando</a>
+    <div class="mt-4">
+        <a href="dashboard.php" class="btn btn-primary">Seguir comprando</a>
+        <a href="detalle_pedido.php?pedido_id=<?= $pedido['id'] ?>" class="btn btn-outline-dark ml-2" target="_blank">📄 Ver PDF del Pedido</a>
+    </div>
 </div>
 </body>
 </html>

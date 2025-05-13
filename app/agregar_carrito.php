@@ -41,5 +41,5 @@ if ($resultExiste->num_rows > 0) {
     $db->query($sqlInsert);
 }
 
-header("Location: carrito.php");
+header("Location: dashboard.php");
 exit;

@@ -52,7 +52,7 @@ if ($carrito_vacio) {
             <div class="form-group">
                 <label for="metodo_pago">💳 Método de pago:</label>
                 <select class="form-control" name="metodo_pago" required>
-                    <option value="Tarjeta">Tarjeta</option>
+                    <option value="Tarjeta">Tarjeta credito/debito</option>
                     <option value="PayPal">PayPal</option>
                     <option value="Efectivo">Efectivo</option>
                 </select>

@@ -142,7 +142,7 @@ $direcciones = $db->query("SELECT * FROM direcciones WHERE usuario_id = $usuario
         <button type="submit" class="btn btn-success">
             <?= $editando ? 'Actualizar Dirección' : 'Guardar Dirección' ?>
         </button>
-        <a href="dashboard.php" class="btn btn-secondary">← Seguir comprando</a>
+        <a href="carrito.php" class="btn btn-secondary">← Seguir comprando</a>
         <?php if ($editando): ?>
             <a href="perfil.php" class="btn btn-secondary ml-2">Cancelar</a>
         <?php endif; ?>

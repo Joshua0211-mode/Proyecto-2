@@ -141,7 +141,7 @@ $sql = "
     FROM producto p
     LEFT JOIN categorias c ON p.categoria_id = c.id
     $where
-    LIMIT 30
+    LIMIT 20
 ";
 
 $result = $db->query($sql);

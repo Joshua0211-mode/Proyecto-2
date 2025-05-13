@@ -138,7 +138,6 @@ $sql = "
     FROM producto p
     LEFT JOIN categorias c ON p.categoria_id = c.id
     $where
-    LIMIT 30
 ";
 
 $result = $db->query($sql);

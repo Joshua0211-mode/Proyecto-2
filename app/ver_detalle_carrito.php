@@ -84,6 +84,7 @@ $total = $subtotal + $iva;
             </tfoot>
         </table>
 
+        
         <form method="POST" action="procesar_pedido.php">
             <button type="submit" class="btn btn-success">Proceder al Pago</button>
             <a href="carrito.php" class="btn btn-secondary ml-2">Volver al Carrito</a>
